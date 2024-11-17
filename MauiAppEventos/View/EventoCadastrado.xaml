@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.View.EventoCadastrado"
+             Title="EventoCadastrado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Magenta}">
+    <VerticalStackLayout Spacing="10"
+                         Padding="10">
+        <Label Text="Evento Cadastrado!"
+               HorizontalOptions="Center"
+               FontSize="Large"
+               FontFamily="Roboto"
+               FontAttributes="Bold"/>
+        <Frame BackgroundColor="{StaticResource White}">
+            <VerticalStackLayout Spacing="10">
+                
+                <Label Text="{Binding NomeEvento}"
+                       TextColor="{StaticResource Tertiary}"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       FontSize="Small"/>
+                
+                <Label Text="{Binding LocalEvento}"
+                       TextColor="{StaticResource Black}"
+                       FontAttributes="Bold"
+                       />
+                
+                <Line X1="1" Y1="5"  
+                      X2="320" Y2="5"  
+                      Stroke="{StaticResource TertiaryBrush}"  
+                      StrokeThickness="2"/>
+
+                <Grid ColumnDefinitions="*, *, *"
+                      RowDefinitions="Auto, Auto">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Inicio:"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="Término:"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Duração:"/>
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           TextColor="{StaticResource Tertiary}"
+                           FontAttributes="Bold"
+                           />
+
+                    <Label Grid.Row="1" Grid.Column="1"
+                           Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           TextColor="{StaticResource Tertiary}"
+                           FontAttributes="Bold"
+                           />
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="2">
+                        <Label 
+                               Text="{Binding Duracao}"
+                               TextColor="{StaticResource Tertiary}"
+                            FontAttributes="Bold"
+                            />
+                        <Label Text=" dias"
+                               TextColor="{StaticResource Tertiary}"
+                               FontAttributes="Bold"
+                               />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Line X1="1" Y1="5"  
+                      X2="320" Y2="5"  
+                      Stroke="{StaticResource TertiaryBrush}"  
+                      StrokeThickness="2"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Total de participantes:"
+                           FontAttributes="Bold"
+                           />
+                    <Label Text="{Binding QntParticipante}"
+                           TextColor="{StaticResource Tertiary}"
+                           FontAttributes="Bold"
+                           />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Custo por participante: "
+                           FontAttributes="Bold"
+                           />
+                    <Label Text="{Binding CustoParticipante, StringFormat='{}{0:c}'}"
+                           TextColor="{StaticResource Tertiary}"
+                           FontAttributes="Bold"
+                           />
+                </StackLayout>
+                <Line X1="1" Y1="5"  
+                      X2="320" Y2="5"  
+                      Stroke="{StaticResource PrimaryBrush}"  
+                      StrokeThickness="2"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Custo Total:"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           />
+                    <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"
+                           TextColor="{StaticResource Tertiary}"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           />
+                </StackLayout>
+            </VerticalStackLayout>                
+        </Frame>
+        <Button Text="Voltar"
+                BackgroundColor="{StaticResource Tertiary}"
+                Clicked="Button_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
